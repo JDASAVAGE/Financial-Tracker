@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+   <meta charset="utf-8">
+   <title>Flask Parent Template</title>
+   <style type="text/css">
+    body { margin: 10px auto 10px auto;
+           padding: 20px;
+           background-color:white;text-align:center;align-items: center;}
+   ul{ color:black;width: 100%;
+           padding: 10px;
+          margin-left: auto; margin-right: auto;
+           align-items: center;
+           justify-content: center;
+           font-size: 95%;}
+   h1{text-align: center;color:black;justify-content: center;}
+   li { display: inline; margin-left: auto; margin-right: auto; margin: 0px 3px;width: 100%;}
+   a{color: black; text-transform: uppercase;}
+   a:hover, a.on {color: #cc3333; background-color: #ffffff;}
+   button{width:50px; height:40px;margin: 0 auto;
+    display: block; background-color:black;border-radius:4px;color: white;}
+    .alert {
+            padding: 20px;
+            margin: 5px;
+            color: #970020;
+            background-color: #ffd5de;
+        }
+   #topbutton{position:absolute;bottom:5px;margin:0 auto;left: 48%;}
+    </style>
+ </head>
+ <body>
+    <div id="page">
+    <h1>The Finance Planner</h1>
+    <ul>
+    <li><a href="{{url_for ('home')}}">Home</a></li>
+		<li><a href="{{ url_for('spending_entry')}}">Input Transactions</a></li>
+    <li><a href="{{ url_for('spending_display')}}">Your Spending</a></li>
+		<li><a href="{{ url_for('wealth_display')}}">Wealth Display</a></li>
+    </ul>
+    <br> 
+    <div class="content">
+      {% for message in get_flashed_messages() %}
+          <div class="alert">{{ message }}</div>  
+          {% endfor %}
+    {% block content %}
+    {% endblock %}
+        <button id='topbutton'onclick="topFunction()">Back to top</button>
+     </body>
+    </html>

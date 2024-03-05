@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stats Entry</title>
+    <style type="text/css">
+      form{display: block;text-align:center; border: 2px double black; border-radius: 5px; width: 500px;justify-content: center;margin-left: auto; margin-right: auto;}
+      h1{display:block;justify-content:center;text-align: center;line-height:2.5;}
+      label{color: black; text-transform: uppercase;}
+      #Spending-entry{width:100px;height: 50px;}
+    </style>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    <br>
+    <h1> Transactions Entry</h1>
+    <br>
+    <form method="post"> 
+      <input type="radio" id="Expenditure" name="type of financial activity" value="Expenditure">
+      <label for="Expenditure">Expenditure</label> <br>
+      <input type="radio" id="Income" name="type of financial activity" value="Income">
+      <label for="Income">Income</label><br>
+      <label for="specific finanical transaction">Specific type of financial transaction</label>
+      <select name="specific" id="specific">
+        <option value="Dining">Dining</option>
+        <option value="Transport">Transport</option>
+        <option value="Leisure">Leisure</option>
+        <option value="Travelling">Travelling</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Education">Education</option>
+        <option value="Cash">Salary</option>
+        <option value="Stocks">Stocks</option>
+        </select> <br>
+        <label for="value of transaction">Value Of Transaction</label>
+        <input type="text" name="value"></input>
+        <br>
+       <button type="submit" id="Spending-entry" name="Spending-entry">Upload Financial Transaction</button>
+    </form>
+    {% endblock %}
+    </body>
+</html>

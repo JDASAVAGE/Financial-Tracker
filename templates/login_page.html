@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stats Entry</title>
+    <style type="text/css">
+      form{display: block;text-align:center; border: 2px double black; border-radius: 5px; width: 300px;justify-content: center;margin-left: auto; margin-right: auto;}
+      h1{display:block;justify-content:center;text-align: center;line-height:2.5;}
+      label{color: black; text-transform: uppercase;}
+      #Account-creation{width:80px}
+    </style>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    <br>
+    <h1> Account Login</h1>
+    <br>
+    <form method="post">
+      <label for="username">Username</label>
+      <input type="text" name="username_entered"
+             value="{{ request.form['username_entered'] }}"></input>
+      <br>
+      <label for="password">Password</label>
+      <input type="text" name="password_entered"
+             value="{{ request.form['password_entered'] }}"></input>
+       <button type="submit">Login</button>
+       <span class="psw">Forgot <a href="#">password?</a></span>
+       <a href="{{ url_for('password_creation') }}"><button type="button"id='Account-creation'>Create New Account</button></a>
+    </form>
+    {% endblock %}
+    </body>
+</html>

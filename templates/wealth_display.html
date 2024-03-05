@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+    .chart{
+        margin-top: 30px;
+        text-align: center;
+    }
+    </style>
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {% block content %}
+        <h1>Assets Available</h1>
+        <div id='chart' class='chart'></div>
+</body>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graphs = {{graphJSON | safe}};
+    Plotly.plot('chart',graphs,{});  
+  </script>
+{% endblock %}
+</html>
